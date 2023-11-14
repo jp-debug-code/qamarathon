@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 app.use(express.urlencoded({ extended: true }));
 
-const port = 自分の社員番号;
+const port = 3149;
 
 const cors = require("cors");
 app.use(cors());
@@ -24,6 +24,7 @@ app.get("/customers", async (req, res) => {
   try {
     const customerData = await pool.query("SELECT * FROM customers");
     res.send(customerData.rows);
+	  
   } catch (err) {
     console.error(err);
     res.send("Error " + err);
